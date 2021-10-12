@@ -1,15 +1,25 @@
 #!/bin/bash
-####### Properties
 
-#SBATCH --time=04:00:00
+#bash run_computecanada.sh Codec b 5 7
+PROJECT=$1
+VERSION=$2
+START=$3
+END=$4
+
+####### Properties
+#SBATCH --time=06:00:00
 #SBATCH --account=def-hemmati-ab
 #SBATCH --nodes=1
-#SBATCH --mem-per-cpu=64G
-#SBATCH --job-name=log_d4j
+#SBATCH --mem-per-cpu=48G
+#SBATCH --job-name=log_d4j_${PROJECT}
 #SBATCH --output=%x-%j.out
+
 ####### Email
 #SBATCH --mail-user=ehsan.mashhadi@gmail.com
 #SBATCH --mail-type=ALL
 
 module load java/1.8.0_192
-bash run.sh Codec 1b
+
+for i in $(seq $START $END);
+ do bash run.sh $PROJECT "${i}${VERSION}";
+done
