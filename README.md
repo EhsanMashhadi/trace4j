@@ -55,3 +55,7 @@ There are some delimiters in called_method_args columns:
 |`4112177108025`|`"void"`|`"empty"`|
 
 You can find the return type and return value of each method by joining two files `log_[CUT].csv` and `ret_log_[CUT].csv` on the id columns.
+
+
+## Licensing
+It is licensed under the MIT license. See the [LICENSE.md](https://github.com/EhsanMashhadi/trace4j/blob/master/LICENSE) for the complete license.
