@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#bash run_computecanada.sh Codec b 5 7
+#bash run_computecanada.sh Codec b 1 16
 PROJECT=$1
 VERSION=$2
 START=$3
@@ -11,7 +11,7 @@ END=$4
 #SBATCH --account=def-hemmati-ab
 #SBATCH --nodes=1
 #SBATCH --mem-per-cpu=48G
-#SBATCH --job-name=log_d4j_${PROJECT}
+#SBATCH --job-name=log_d4j
 #SBATCH --output=%x-%j.out
 
 ####### Email
@@ -19,7 +19,7 @@ END=$4
 #SBATCH --mail-type=ALL
 
 module load java/1.8.0_192
-
+export JAVA_TOOL_OPTIONS="-Xmx16g"
 for i in $(seq $START $END);
- do bash run.sh $PROJECT "${i}${VERSION}";
+ do (bash run.sh $PROJECT "${i}${VERSION}");
 done

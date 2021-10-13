@@ -102,17 +102,17 @@ public aspect Trace {
 
     private void writeLogWithoutReturn(TraceLog traceLog) {
         StringBuilder sb = new StringBuilder();
-        sb.append(traceLog.id);
+        sb.append('"'+traceLog.id+'"');
         sb.append(",");
-        sb.append(traceLog.callingClassName);
+        sb.append('"'+traceLog.callingClassName+'"');
         sb.append(",");
-        sb.append(traceLog.callingMethodName);
+        sb.append('"'+traceLog.callingMethodName+'"');
         sb.append(",");
-        sb.append(traceLog.calledClassName);
+        sb.append('"'+traceLog.calledClassName+'"');
         sb.append(",");
-        sb.append(traceLog.calledMethodName);
+        sb.append('"'+traceLog.calledMethodName+'"');
         sb.append(",");
-        sb.append(traceLog.args);
+        sb.append('"'+traceLog.args+'"');
         sb.append("\n");
         writer.write(sb.toString());
         writer.flush();
@@ -120,11 +120,11 @@ public aspect Trace {
 
     private void writeReturnValue(long id, String returnType, String returnValue) {
         StringBuilder sb = new StringBuilder();
-        sb.append(id);
+        sb.append('"'+id+'"');
         sb.append(",");
-        sb.append(returnType);
+        sb.append('"'+returnType+'"');
         sb.append(",");
-        sb.append(returnValue);
+        sb.append('"'+returnValue+'"');
         sb.append("\n");
         writer_return.write(sb.toString());
         writer_return.flush();
