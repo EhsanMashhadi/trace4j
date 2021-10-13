@@ -1,6 +1,8 @@
 #IntelliJ IDEA
 .idea/
-
+tools/
+projects/
+*.txt
 # Compiled class file
 *.class
 

@@ -19,8 +19,13 @@ VERSION=$2
 START=$3
 END=$4
 
+echo "Start Time:" $(date -u)
+
 module load java/1.8.0_192
 export JAVA_TOOL_OPTIONS="-Xmx16g"
 for i in $(seq $START $END);
  do (bash run.sh $PROJECT "${i}${VERSION}");
 done
+
+echo "END Time:" $(date -u)
+
