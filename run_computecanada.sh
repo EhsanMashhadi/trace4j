@@ -1,10 +1,6 @@
 #!/bin/bash
 
 #bash run_computecanada.sh Codec b 1 16
-PROJECT=$1
-VERSION=$2
-START=$3
-END=$4
 
 ####### Properties
 #SBATCH --time=06:00:00
@@ -17,6 +13,11 @@ END=$4
 ####### Email
 #SBATCH --mail-user=ehsan.mashhadi@gmail.com
 #SBATCH --mail-type=ALL
+
+PROJECT=$1
+VERSION=$2
+START=$3
+END=$4
 
 module load java/1.8.0_192
 export JAVA_TOOL_OPTIONS="-Xmx16g"
